@@ -11,5 +11,5 @@ Booking.destroy_all
 
 les = User.create!(password: "lesFun", email: "les@fun.com")
 serg = User.create!(password: "sergFun", email: "serg@fun.com")
-planty = Plant.create!(name: "cactus", user_id: les.id)
+planty = Plant.create!(name: "cactus", description:"This is a great cactus", user_id: les.id , care_instructions: "needs no water", price: 10, latitude: 52.532190, longitude:13.420540)
 booky = Booking.create(start_date: Date.new(2020, 1, 1), end_date: Date.new(2020, 1, 2), user_id: serg.id, plant_id: planty.id)
