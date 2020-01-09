@@ -1,4 +1,9 @@
 <p>user show page or profile page</p>
-<p> Hello <% @user.name %></p>
-<p> <% @user.description %></p>
+<p> <% if user_signed_in? %>
+ <div> <%= current_user.name %> </div>
+ <div> <%= current_user.description %> </div>
+  <%= link_to "Edit Profile", edit_user_path %>
+<% end %>
+</p>
+
 <!-- current user issues? how to display the current user profile -->

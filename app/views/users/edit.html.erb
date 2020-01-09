@@ -1,0 +1,8 @@
+<h4>Edit your profile</h4>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :description %>
+  <%= f.input :password %>
+  <%= f.button :submit %>
+<% end %>
