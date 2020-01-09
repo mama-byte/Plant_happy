@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
-  def new
-    @booking = Booking.new
+ #NOT FINESHED NEEDS TO BE CHECKED
+  def show
+    @booking = Booking.find(:id)
+    @palnt = plant.find(:id)
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params[:id])
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -12,13 +14,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
-  end
-
   def destroy
     @booking = Booking.find(params[:booking_id])
     @booking.destroy
-    redirect_to booking_path(@booking.plant)
+    redirect_to booking_path(@booking.plant_id)
   end
 
   private
