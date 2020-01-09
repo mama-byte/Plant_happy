@@ -1,18 +1,15 @@
-<h1> Plants show page</h1>
+<h1> Plants index page</h1>
 
 <tbody>
   <% @plants.each do |plant| %>
     <tr>
-      <td><%= Plant.name %></td>
-      <td><%= link_to 'Create', plant %></td>
-      <td><%= link_to 'Show', plant %></td>
+      <td><%= plant.name %></td>
       <td><%= link_to 'Edit', edit_plant_path(plant)%></td>
 
-      <td><% link_to 'Destroy', plant,
+      <td><%= link_to 'Destroy', plant,
           method: :delete, data: {
             confirm: 'Are you sure?' } %>
       </td>
-
     </tr>
   <% end %>
 </tbody>

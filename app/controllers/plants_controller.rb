@@ -23,10 +23,13 @@ class PlantsController < ApplicationController
   end
 
   def edit
+    @plant = Plant.find(params[:id])
   end
 
   def update
+    @plant = Plant.find(params[:id])
     if @plant.update(plant_params)
+      @plant.save
       redirect_to @plant, notice: 'Plant was updated'
     else
       render :edit
@@ -34,6 +37,7 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+    @plant = Plant.find(params[:id])
     @plant.destroy
     redirect_to plants_url,
     notice: 'Plant was destroyed'
@@ -47,7 +51,7 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
-                                  :care_instruction, :user_id,
+                                  :care_instructions, :user_id,
                                   :latitude, :longitude)
   end
 end
