@@ -4,14 +4,9 @@
   <% @plants.each do |plant| %>
     <tr>
       <td><%= Plant.name %></td>
-
+      <td><%= link_to 'Create', plant %></td>
       <td><%= link_to 'Show', plant %></td>
-
-      <td><% if current_user == plant.user %></td>
-          <%= link_to 'Edit', edit_plant_path(plant)%>
-        <!--   <% else %>
-          <% end %> -->
-      </td>
+      <td><%= link_to 'Edit', edit_plant_path(plant)%></td>
 
       <td><% link_to 'Destroy', plant,
           method: :delete, data: {
