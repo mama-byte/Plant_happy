@@ -40,7 +40,6 @@ class PlantsController < ApplicationController
   end
 
   private
-
   # def set_plant
   #   @plant = Plant.find(params[:id])
   #   authorize @plant
@@ -51,4 +50,4 @@ class PlantsController < ApplicationController
                                   :care_instruction, :user_id,
                                   :latitude, :longitude)
   end
-end_date
+end
