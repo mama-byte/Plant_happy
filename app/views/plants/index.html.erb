@@ -1,5 +1,5 @@
 <h1> Plants index page</h1>
-<table></table>
+<table>
   <thead>
     <tr>
       <th>Plant Name</th>
@@ -11,32 +11,27 @@
     <% @plants.each do |plant| %>
       <tr>
         <td><%= plant.name %></td>
-        <td><%= plant.user.email %></td>
         <td>
-          <% if policy(Plant).show? %>
+        <!--   if policy(Plant).show? -->
           <%= link_to 'Show', plant %>
-          <% end %>
+         <!--  end -->
         </td>
         <td>
           <% if policy(Plant).create? %>
-          <%= link_to "New plant", new_plant_path %>
+          <%= link_to "New plant", new_plant_path
+            %>
           <% end %>
         </td>
         <td>
-          <!-- if i am owner, display the link, else do not -->
-          <!-- if current_user == plant.user -->
-           <!-- link_to 'Edit', edit_plant_path(plant) -->
-          <!-- else -->
-          <!-- nothing -->
-          <!-- end -->
           <% if policy(Plant).edit? %>
-          <%= link_to 'Edit', edit_plant_path(plant)%>
+          <%= link_to 'Edit', edit_plant_path(plant)
+            %>
           <% end %>
         </td>
         <td>
           <% if policy(plant).destroy? %>
-          <%= link_to 'Destroy', plant,
-              method: :delete, data: {confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', plant,method: :delete, data: {confirm: 'Are you sure?'}
+             %>
           <% end %>
         </td>
       </tr>
@@ -45,6 +40,7 @@
 </table>
 
 <br>
- <% if policy(Plant).new? %>
- <%= link_to "New plant", new_plant_path %>
- <% end %>
+
+<% if policy(Plant).new? %>
+<%= link_to 'New Plant', new_plant_path %>
+<% end %>

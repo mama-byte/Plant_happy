@@ -1,8 +1,9 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
+
   def index
     # @plants = Plant.all
-    @plant = policy_scope(Plant)
+    @plant = policy_scope(Plant) #this line handles the index through authorization. check plant policy scope
   end
 
   def show

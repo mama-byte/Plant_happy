@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   # pundit white-list approach
-  after_action :verify_authorized, except: :index, unless: :skip.pundit?
-  after_action :verify_policy_scoped, only: :index, unless: :skip.pundit?
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   # rescue_from Pundit::NotAUthorizedError, with: :user_not_authorized
   # def

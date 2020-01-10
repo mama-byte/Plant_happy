@@ -1,12 +1,14 @@
 class PlantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
-      scope.where(user: user)
+      scope.all #anyone can view any plant
+
+      #display only the plants of owner
+      # scope.where(user: user)
     end
 
-    # def new?
-    #   true
+    # def new? #not anyone can create a plant. removes link to create a plant from index
+    #   false
     #   # create?
     # end
 
@@ -15,12 +17,12 @@ class PlantPolicy < ApplicationPolicy
       # false
     end
 
-    # temp edit method till full refactor
-    def edit?
-      record.user == user
+    def update?
+      # record.user == user
+      user_is_owner?
     end
 
-    def update?
+    def destroy?
       # record.user == user
       user_is_owner?
     end
