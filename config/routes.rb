@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :plants
-  resources :bookings, only: [ :show, :edit, :new, :destroy, :create]
+  resources :plants do
+    resources :bookings, only: [:show]
+  end
+
+  resources :bookings, only: [:new, :create, :index, :destroy]
 
 end

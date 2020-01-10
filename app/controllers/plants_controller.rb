@@ -4,6 +4,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @plant = Plant.find(params[:id])
   end
 
   def new
@@ -14,12 +15,12 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
-    # authorize @plant
-    # if plant.save
-    #   redirect_to @plant, notice: 'Plant was saved'
-    # else
-    #   render :new
-    # end
+       # authorize @plant
+    if @plant.save
+      redirect_to plant_path(@plant)
+    else
+      render 'new'
+    end
   end
 
   def edit
