@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, only: %i[create destroy new edit update]
+  before_action :authenticate_user!
 
   # pundit white-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
