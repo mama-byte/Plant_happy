@@ -1,15 +1,14 @@
-<h1> Plants index page</h1>
-
-<tbody>
+<div class="cards">
   <% @plants.each do |plant| %>
-    <tr>
-      <td><%= plant.name %></td>
-      <td><%= link_to 'Destroy', plant,
+    <div>
+     <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
+    <%= plant.name %>
+    <div class="card-trip-infos">
+      <btn class="button"><%= link_to 'Edit', edit_plant_path(plant)%></btn>
+      <btn class="button"><%= link_to 'Destroy', plant,
           method: :delete, data: {
-            confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
-   <%= cl_image_tag("lc0sar57pvu4chbdqj9u",
-         width: 400, height: 300, crop: :fill) %>
+          confirm: 'Are you sure?' } %></btn>
+    </div>
+  </div>
   <% end %>
-</tbody>
+</div>
