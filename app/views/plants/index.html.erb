@@ -12,25 +12,20 @@
       <tr>
         <td><%= plant.name %></td>
         <td>
-        <!--   if policy(Plant).show? -->
-          <%= link_to 'Show', plant %>
-         <!--  end -->
-        </td>
-        <td>
-          <% if policy(Plant).create? %>
+          <% if policy(plant).create? %>
           <%= link_to "New plant", new_plant_path
             %>
           <% end %>
         </td>
         <td>
-          <% if policy(Plant).edit? %>
+          <% if policy(plant).edit? %>
           <%= link_to 'Edit', edit_plant_path(plant)
             %>
           <% end %>
         </td>
         <td>
           <% if policy(plant).destroy? %>
-          <%= link_to 'Destroy', plant,method: :delete, data: {confirm: 'Are you sure?'}
+          <%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' }
              %>
           <% end %>
         </td>

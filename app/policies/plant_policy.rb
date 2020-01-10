@@ -7,10 +7,10 @@ class PlantPolicy < ApplicationPolicy
       # scope.where(user: user)
     end
 
-    # def new? #not anyone can create a plant. removes link to create a plant from index
-    #   false
-    #   # create?
-    # end
+    def new? #not anyone can create a plant. removes link to create a plant from index
+      # false
+      create?
+    end
 
     def create?
       true #anyone can create a plant. I think this is not correct! Only Host's can?

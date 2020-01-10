@@ -3,7 +3,8 @@ class PlantsController < ApplicationController
 
   def index
     # @plants = Plant.all
-    @plant = policy_scope(Plant) #this line handles the index through authorization. check plant policy scope
+    @plants = policy_scope(Plant) #this line handles the index through authorization.
+    # see plant policy -scope
   end
 
   def show
