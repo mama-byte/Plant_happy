@@ -1,4 +1,4 @@
-<p>user show page or profile page</p>
+<p>Profile page</p>
 <p> <% if user_signed_in? %>
  <div> <%= current_user.name %> </div>
  <div> <%= current_user.description %> </div>
@@ -6,4 +6,11 @@
 <% end %>
 </p>
 
-<!-- current user issues? how to display the current user profile -->
+<%= link_to 'Create a Plant', new_plant_path %>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+  </div>
+</div> -->
