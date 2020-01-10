@@ -4,12 +4,12 @@
   <% @plants.each do |plant| %>
     <tr>
       <td><%= plant.name %></td>
-      <td><%= link_to 'Edit', edit_plant_path(plant)%></td>
-
       <td><%= link_to 'Destroy', plant,
           method: :delete, data: {
             confirm: 'Are you sure?' } %>
       </td>
     </tr>
+   <%= cl_image_tag("lc0sar57pvu4chbdqj9u",
+         width: 400, height: 300, crop: :fill) %>
   <% end %>
 </tbody>
