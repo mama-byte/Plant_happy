@@ -1,15 +1,50 @@
 <h1> Plants index page</h1>
-
-<tbody>
-  <% @plants.each do |plant| %>
+<table></table>
+  <thead>
     <tr>
-      <td><%= plant.name %></td>
-      <td><%= link_to 'Edit', edit_plant_path(plant)%></td>
-
-      <td><%= link_to 'Destroy', plant,
-          method: :delete, data: {
-            confirm: 'Are you sure?' } %>
-      </td>
+      <th>Plant Name</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-</tbody>
+  </thead>
+
+  <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <td><%= plant.name %></td>
+        <td><%= plant.user.email %></td>
+        <td>
+          <% if policy(Plant).show? %>
+          <%= link_to 'Show', plant %>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(Plant).create? %>
+          <%= link_to "New plant", new_plant_path %>
+          <% end %>
+        </td>
+        <td>
+          <!-- if i am owner, display the link, else do not -->
+          <!-- if current_user == plant.user -->
+           <!-- link_to 'Edit', edit_plant_path(plant) -->
+          <!-- else -->
+          <!-- nothing -->
+          <!-- end -->
+          <% if policy(Plant).edit? %>
+          <%= link_to 'Edit', edit_plant_path(plant)%>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(plant).destroy? %>
+          <%= link_to 'Destroy', plant,
+              method: :delete, data: {confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+ <% if policy(Plant).new? %>
+ <%= link_to "New plant", new_plant_path %>
+ <% end %>

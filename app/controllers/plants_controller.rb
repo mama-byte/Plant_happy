@@ -1,6 +1,8 @@
 class PlantsController < ApplicationController
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
   def index
-    @plants = Plant.all
+    # @plants = Plant.all
+    @plant = policy_scope(Plant)
   end
 
   def show
@@ -9,15 +11,15 @@ class PlantsController < ApplicationController
 
   def new
     @plant = Plant.new
-    # authorize @plant
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
     @plant.user = current_user
-       # authorize @plant
+    authorize @plant
     if @plant.save
-      redirect_to plant_path(@plant)
+      redirect_to plant_path(@plant), notice: 'Plant was saved'
     else
       render 'new'
     end
@@ -40,15 +42,15 @@ class PlantsController < ApplicationController
   def destroy
     @plant = Plant.find(params[:id])
     @plant.destroy
-    redirect_to plants_url,
-    notice: 'Plant was destroyed'
+    redirect_to plants_url, notice: 'Plant was destroyed'
   end
 
   private
-  # def set_plant
-  #   @plant = Plant.find(params[:id])
-  #   authorize @plant
-  # end
+
+  def set_plant
+    @plant = Plant.find(params[:id])
+    authorize @plant
+  end
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
