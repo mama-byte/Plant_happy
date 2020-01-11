@@ -2,12 +2,12 @@
   <% @plants.each do |plant| %>
     <div>
      <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
-    <%= plant.name %>
+   <div class="name_plant"> <%= plant.name %> </div>
     <div class="card-trip-infos">
-      <btn class="button"><%= link_to 'Edit', edit_plant_path(plant)%></btn>
-      <btn class="button"><%= link_to 'Destroy', plant,
+      <%= link_to 'Edit', edit_plant_path(plant), class: "button" %>
+      <%= link_to 'Destroy', plant,
           method: :delete, data: {
-          confirm: 'Are you sure?' } %></btn>
+          confirm: 'Are you sure?' },  class: "button" %>
     </div>
   </div>
   <% end %>
