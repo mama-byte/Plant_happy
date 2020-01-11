@@ -12,8 +12,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-!/tmp/pids
-!/tmp/pids/.keep
 
 # Ignore uploaded files in development
 /storage/*
@@ -29,6 +27,7 @@
 /config/master.key
 
 /public/packs
+/public/uploads/tmp/*
 /public/packs-test
 /node_modules
 /yarn-error.log
@@ -41,3 +40,4 @@ yarn-debug.log*
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+.env*

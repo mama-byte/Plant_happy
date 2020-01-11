@@ -1,41 +1,30 @@
+
 <h1> Plants index page</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Plant Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @plants.each do |plant| %>
-      <tr>
-        <td><%= plant.name %></td>
-        <td>
-          <% if policy(plant).create? %>
-          <%= link_to "New plant", new_plant_path
-            %>
-          <% end %>
-        </td>
-        <td>
-          <% if policy(plant).edit? %>
-          <%= link_to 'Edit', edit_plant_path(plant)
-            %>
-          <% end %>
-        </td>
-        <td>
-          <% if policy(plant).destroy? %>
-          <%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' }
-             %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if policy(Plant).new? %>
-<%= link_to 'New Plant', new_plant_path %>
-<% end %>
+<div class="cards">
+  <% @plants.each do |plant| %>
+    <div>
+     <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
+    <%= plant.name %>
+    <div class="card-trip-infos">
+       <% if policy(plant).create? %>
+       <btn class="button"><%= link_to "New plant", new_plant_path
+          %>
+       <% end %>
+      </btn>
+      <% if policy(plant).edit? %>
+      <btn class="button"><%= link_to 'Edit', edit_plant_path(plant)%>
+      <% end %> 
+      </btn>
+      <% if policy(plant).destroy? %>
+      <btn class="button"><%= link_to 'Destroy', plant,
+          method: :delete, data: {
+          confirm: 'Are you sure?' } %>
+       <% end %>
+      </btn>
+    </div>
+  </div>
+  <% end %>
+ <% if policy(Plant).new? %>
+ <%= link_to 'New Plant', new_plant_path %>
+ <% end %>
+</div>
