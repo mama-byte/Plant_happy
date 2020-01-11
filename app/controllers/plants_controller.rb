@@ -19,7 +19,7 @@ class PlantsController < ApplicationController
     if @plant.save
       redirect_to plant_path(@plant)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -52,7 +52,7 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
-                                  :care_instructions, :user_id,
+                                  :care_instructions, :user_id, :photo, :photo_cache,
                                   :latitude, :longitude)
   end
 end
