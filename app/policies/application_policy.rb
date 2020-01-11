@@ -34,6 +34,10 @@ class ApplicationPolicy
     false
   end
 
+  def scope
+    record.class
+  end
+
   class Scope
     attr_reader :user, :scope
 

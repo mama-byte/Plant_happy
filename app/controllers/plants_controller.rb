@@ -9,6 +9,7 @@ class PlantsController < ApplicationController
 
   def show
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def new
@@ -29,12 +30,14 @@ class PlantsController < ApplicationController
 
   def edit
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def update
     @plant = Plant.find(params[:id])
     if @plant.update(plant_params)
       @plant.save
+      authorize @plant
       redirect_to @plant, notice: 'Plant was updated'
     else
       render :edit
@@ -43,6 +46,7 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant = Plant.find(params[:id])
+    authorize @plant
     @plant.destroy
     redirect_to plants_url, notice: 'Plant was destroyed'
   end
