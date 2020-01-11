@@ -6,32 +6,19 @@
      <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
    <div class="name_plant"> <%= plant.name %> </div>
     <div class="card-trip-infos">
-<<<<<<< HEAD
-      <%= link_to 'Edit', edit_plant_path(plant), class: "button" %>
+      <% if policy(plant).edit? %>
+     <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
+      <% end %>
+
+      <% if policy(plant).destroy? %>
       <%= link_to 'Destroy', plant,
           method: :delete, data: {
-          confirm: 'Are you sure?' },  class: "button" %>
-=======
-       <% if policy(plant).create? %>
-       <btn class="button"><%= link_to "New plant", new_plant_path
-          %>
+          confirm: 'Are you sure?' }, class: "button" %>
        <% end %>
-      </btn>
-      <% if policy(plant).edit? %>
-      <btn class="button"><%= link_to 'Edit', edit_plant_path(plant)%>
-      <% end %> 
-      </btn>
-      <% if policy(plant).destroy? %>
-      <btn class="button"><%= link_to 'Destroy', plant,
-          method: :delete, data: {
-          confirm: 'Are you sure?' } %>
-       <% end %>
-      </btn>
->>>>>>> master
+       <% if policy(plant).show? %>
+       <%= link_to 'View', plant, class: "button" %>
+        <% end %>
     </div>
   </div>
   <% end %>
- <% if policy(Plant).new? %>
- <%= link_to 'New Plant', new_plant_path %>
- <% end %>
 </div>
