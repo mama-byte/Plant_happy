@@ -1,14 +1,27 @@
+
+<h1> Plants index page</h1>
 <div class="cards">
   <% @plants.each do |plant| %>
     <div>
      <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
    <div class="name_plant"> <%= plant.name %> </div>
     <div class="card-trip-infos">
-      <%= link_to 'Edit', edit_plant_path(plant), class: "button" %>
+       <% if policy(plant).create? %>
+        <%= link_to "New plant", new_plant_path,  class: "button" 
+          %>
+       <% end %>
+      <% if policy(plant).edit? %>
+      <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
+      <% end %> 
+      <% if policy(plant).destroy? %>
       <%= link_to 'Destroy', plant,
           method: :delete, data: {
           confirm: 'Are you sure?' },  class: "button" %>
+       <% end %>
     </div>
   </div>
   <% end %>
+ <% if policy(Plant).new? %>
+ <%= link_to 'New Plant', new_plant_path %>
+ <% end %>
 </div>
