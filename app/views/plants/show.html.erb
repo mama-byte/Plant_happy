@@ -1,3 +1,29 @@
 <!-- here i need to render a calender along with everything else -->
 <!-- need to show the booking button - would this then take you to the new booking view? -->
-<p>plant show page for plant id: <%= @plant.id %></p>
+<div class = "gallery">
+  <img src="https://images.unsplash.com/photo-1447012256906-c2ed7aa5632e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=626&q=80" class = "img_preview" />
+  <img src="https://images.unsplash.com/photo-1429044809083-ea30745dd5c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class = "img_preview2" />
+  <img src="https://images.unsplash.com/photo-1440376241544-17a965251a24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class = "img_preview3" />
+</div>
+
+<div class="show_page_container">
+  <div class= "text_container">
+    <div class = 'title'>
+      <h2><%= @plant.name %></h2>
+    </div>
+
+    <div class= "text_box">
+      <p> <%= image_tag("cactus", class: "icon") %><h4>Plant Description</h4></p>
+      <%= @plant.description %>
+    </div>
+
+    <div class= "text_box">
+      <p><%= image_tag("growth", class: "icon") %><h4>Plant Care</h4></p>
+      <%= @plant.care_instructions %>
+    </div>
+
+    <div class= "text_box">
+      <%= link_to "Make a Booking", "#", class: "btn btn-ghost" %>
+    </div>
+
+</div>

@@ -1,5 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -79,3 +81,4 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
