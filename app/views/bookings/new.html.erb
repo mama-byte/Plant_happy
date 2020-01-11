@@ -2,11 +2,12 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <%= simple_form_for @booking  do |f| %>
+      <%= simple_form_for @booking, url: plant_bookings_path(@booking.plant_id), method: :post  do |f| %>
 
         <%= f.input :start_date %>
         <%= f.input :end_date %>
         <%= f.button :submit, class: "btn btn-ghost" %>
+
     <%end%>
 
     </div>
