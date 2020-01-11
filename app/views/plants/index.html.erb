@@ -4,7 +4,9 @@
   <% @plants.each do |plant| %>
     <div>
      <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
-   <div class="name_plant"> <%= plant.name %> </div>
+   <div class="name_plant">
+   <h2><%= plant.name %></h2>
+  </div>
     <div class="card-trip-infos">
       <% if policy(plant).edit? %>
      <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
