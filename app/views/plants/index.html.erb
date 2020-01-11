@@ -3,7 +3,7 @@
 <div class="cards">
   <% @plants.each do |plant| %>
     <div>
-     <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
+     <%= cl_image_tag plant.photo.url, class: "my_class" %>
    <div class="name_plant"> <%= plant.name %> </div>
     <div class="card-trip-infos">
       <% if policy(plant).edit? %>
