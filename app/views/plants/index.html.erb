@@ -1,24 +1,67 @@
 
+<div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1552916016-9cbd0be0f03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
+    <h2 class="header_text">Are You a Plant Happy Person?</h2>
+    <div class="box"></div>
+</div>
 
-<div class="cards">
-  <% @plants.each do |plant| %>
-    <div>
-     <%= cl_image_tag("#{plant.photo}",class: "my_class") %>
-   <div class="name_plant"> <%= plant.name %> </div>
-    <div class="card-trip-infos">
-      <% if policy(plant).edit? %>
-     <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
-      <% end %>
-
-      <% if policy(plant).destroy? %>
-      <%= link_to 'Destroy', plant,
-          method: :delete, data: {
-          confirm: 'Are you sure?' }, class: "button" %>
-       <% end %>
-       <% if policy(plant).show? %>
-       <%= link_to 'View', plant, class: "button" %>
-        <% end %>
-    </div>
+<div class = 'about_box'>
+  <div class ="search">
+     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
   </div>
+<% end %>
+  </div>
+
+  <div class ="about">
+    <h2>Why Plants Make You Happy</h2>
+    <p>Plants are more than just decoration. They make our lives brighter simply by being in a room with us, whether clustered on window sills, congregated in corners or suspended from ceilings in hanging baskets. Their presence is therapeutic and adds color and texture to otherwise lifeless indoor spaces; research shows this helps us to refocus our energy and better manage stress.
+    The practice of collecting and caring for indoor plants is increasingly popular, but there’s nothing new about the human impulse to keep houseplants. What is new is the science that finally confirms what we already knew: plants make our lives happier and our minds healthier.</p>
+  </div>
+</div>
+
+<div class ="box_for_cards">
+
+<div id="grid">
+      <% @plants.each do |plant| %>
+      <div class= "cards">
+      <div class = "card_trip">
+        <div class="card_image">
+         <%= cl_image_tag("#{plant.photo}",class: "card_image") %>
+        </div>
+        <div class="card-trip-infos">
+            <h4><%= plant.name %></h4>
+        </div>
+
+              <div class = "m-3" id = "links">
+              <span class= "m-2">
+              <% if policy(plant).edit? %>
+                <%= link_to image_tag('edit.png',width:30), edit_plant_path(plant) %>
+              <% end %>
+              </span>
+
+              <span class= "m-2">
+              <% if policy(plant).destroy? %>
+                  <%= link_to image_tag('bin.png',width:30), plant,
+                      method: :delete, data: {
+                      confirm: 'Are you sure?' }%>
+               <% end %>
+               </span>
+
+              <span class= "m-2">
+               <% if policy(plant).show? %>
+                <%= link_to 'View', plant %>
+                <% end %>
+              </span>
+            </div>
+
+      </div>
+    </div>
   <% end %>
 </div>
+  </div>
+</div>
+
