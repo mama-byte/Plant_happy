@@ -5,6 +5,13 @@ class PlantsController < ApplicationController
     # @plants = Plant.all
     @plants = policy_scope(Plant) #this line handles the index through authorization.
     # see plant policy -scope
+    @plants = Plant.geocoded #returns flats with coordinates
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
   end
 
   def show

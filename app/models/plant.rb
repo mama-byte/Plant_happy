@@ -6,7 +6,6 @@ class Plant < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   validates :name, presence: true
-  validates :address, presence: true
   validates :description, presence: true
   validates :care_instructions, presence: true
   validates :price, presence: true
