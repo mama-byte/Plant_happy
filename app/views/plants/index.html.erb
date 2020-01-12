@@ -9,7 +9,6 @@
       <% if policy(plant).edit? %>
      <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
       <% end %>
-
       <% if policy(plant).destroy? %>
       <%= link_to 'Destroy', plant,
           method: :delete, data: {
@@ -18,14 +17,15 @@
        <% if policy(plant).show? %>
        <%= link_to 'View', plant, class: "button" %>
         <% end %>
-        <div
-          id="map"
-          style="width: 100%;
-          height: 600px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
     </div>
+
   </div>
   <% end %>
 </div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px; top: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

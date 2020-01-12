@@ -17,6 +17,13 @@ class PlantsController < ApplicationController
   def show
     @plant = Plant.find(params[:id])
     authorize @plant
+    @plants = Plant.geocoded #returns flats with coordinates
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
   end
 
   def new
