@@ -5,5 +5,13 @@
   <%= @bookings.count  %>
    <% @bookings.each do |booking| %>
       <%= booking.plant.name %>
+      <% if policy(booking).destroy? %>
+      <%= link_to 'Destroy', booking,
+          method: :delete, data: {
+          confirm: 'Are you sure?' }, class: "button" %>
+       <% end %>
+       <% if policy(booking).show? %>
+       <%= link_to 'View', booking, class: "button" %>
+        <% end %>
   <% end %>
 </div>

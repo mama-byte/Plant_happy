@@ -1,6 +1,6 @@
 
 class BookingsController < ApplicationController
-  # before_action :set_plant
+  # before_action :set_booking # only: [:show, :edit, :update, :destroy]
 
   # To create a booking I need this to be linked to a plant but to show the bookings I need to be linked to a current_user
 
@@ -10,14 +10,15 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
     # @plant = Plant.find(params[:plant_id])
     # @booking.plant_id = @plant.id
   end
 
- def new
+  def new
     @booking = Booking.new
     @booking.plant_id = params[:plant_id]
-    # authorize @plant
+    authorize @booking
   end
 
   def create
@@ -25,6 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.plant_id = params[:plant_id]
+    authorize @booking
     if @booking.save
       redirect_to user_path
     else
@@ -34,14 +36,16 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to user_path
   end
 
   private
 
-  # def set_plant
-  #     @plant = Plant.find(params[:plant_id])
+  # def set_booking
+  #   @booking = Booking.find(params[:id])
+  #   authorize @booking
   # end
 
   def booking_params
