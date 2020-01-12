@@ -7,18 +7,23 @@
    <div class="name_plant"> <%= plant.name %> </div>
     <div class="card-trip-infos">
       <% if policy(plant).edit? %>
-     <%= link_to 'Edit', edit_plant_path(plant), class: "button"%>
+     <%= link_to 'Modify Listing', edit_plant_path(plant), class: "button"%>
       <% end %>
 
       <% if policy(plant).destroy? %>
-      <%= link_to 'Destroy', plant,
+      <%= link_to 'Remove Listing', plant,
           method: :delete, data: {
           confirm: 'Are you sure?' }, class: "button" %>
        <% end %>
        <% if policy(plant).show? %>
-       <%= link_to 'View', plant, class: "button" %>
+       <%= link_to 'View Listing', plant, class: "button" %>
         <% end %>
     </div>
   </div>
   <% end %>
+<% if policy(Plant).new? %>
+<%= link_to 'Create Plant Listing', new_plant_path, class: "button" %>
+<% end %>
 </div>
+
+
