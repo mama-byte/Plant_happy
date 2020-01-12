@@ -1,5 +1,6 @@
 <!-- here i need to render a calender along with everything else -->
 <!-- need to show the booking button - would this then take you to the new booking view? -->
+
 <div class = "gallery">
   <%= cl_image_tag("#{@plant.photo}",class: "img_preview") %>
   <%= cl_image_tag("#{@plant.photo}",class: "img_preview2") %>
@@ -25,12 +26,5 @@
     <div class= "text_box">
       <%= link_to "Make a Booking",  new_plant_booking_path(@plant), class: "btn btn-ghost" %>
     </div>
-
+    <%= render 'shared/map'%>
 </div>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px; right: 400px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
