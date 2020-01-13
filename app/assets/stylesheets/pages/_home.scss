@@ -6,7 +6,6 @@
   grid-template-rows: auto;
   grid-gap: 20px;
   padding: 20px;
-  background-color:rgba(199, 199, 199, 1);
 }
 
 .banner {
@@ -32,7 +31,7 @@
     grid-row-start: 4;
     grid-row-end: -1;
     z-index: 3;
-    background-color: rgba(29, 32, 31, 1);
+    background-color: rgba(2, 51, 47, 1);
 }
 
 .box{
@@ -40,7 +39,7 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: span 4;
-    background-color: rgba(199, 199, 199, 0.8);
+    background-color: rgba(232, 240, 235, 1);
     z-index: 2;
 }
 
@@ -53,7 +52,7 @@
 .about{
  padding: 30px;
  padding-left: 50px;
- background-color:#D0C9C4;
+ background-color:$mint-green;
  margin:0px;
 }
 
@@ -63,7 +62,7 @@
 }
 
 .box_for_cards{
-   background-color:rgba(199, 199, 199, 1);
+   background-color:rgba(199, 199, 199, 0.3);
    padding:20px;
 }
 
@@ -150,7 +149,22 @@
  .header_text{
     font-size: 40px;
     padding:18px;
+      color: white;
+    text-align: center;
+    padding-top: 40px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: -1;
+    z-index: 3;
   }
+  .box{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    z-index: 2;
+}
   .about_box{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -179,7 +193,6 @@
     grid-row-start: 4;
     grid-row-end: -1;
     z-index: 3;
-    background-color: rgba(29, 32, 31, 1);
 }
 
 .box{
@@ -187,7 +200,6 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: span 4;
-    background-color: rgba(199, 199, 199, 0.8);
     z-index: 2;
 }
 .about_box{
@@ -218,7 +230,6 @@
     grid-row-start: 4;
     grid-row-end: -1;
     z-index: 3;
-    background-color: rgba(29, 32, 31, 1);
 }
 
 .box{
@@ -226,7 +237,6 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: span 4;
-    background-color: rgba(199, 199, 199, 0.8);
     z-index: 2;
 }
 .about_box{
