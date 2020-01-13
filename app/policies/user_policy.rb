@@ -16,6 +16,7 @@ class UserPolicy < ApplicationPolicy
   def update?
     # record.user == user
     user_is_owner?
+    # true
   end
 
   def destroy?

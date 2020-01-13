@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking.plant_id = params[:plant_id]
     authorize @booking
     if @booking.save
-      redirect_to user_path
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
