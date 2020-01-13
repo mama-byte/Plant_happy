@@ -1,4 +1,6 @@
 
+<h1> Plants index page</h1>
+<div>
 <div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1552916016-9cbd0be0f03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);">
     <h2 class="header_text">Are You a Plant Happy Person?</h2>
     <div class="box"></div>
@@ -61,7 +63,11 @@
       </div>
     </div>
   <% end %>
+<% if policy(Plant).new? %>
+<%= link_to 'Create Plant Listing', new_plant_path, class: "button" %>
+<% end %>
 </div>
-  </div>
 </div>
+
+
 
