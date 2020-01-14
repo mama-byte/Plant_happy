@@ -5,7 +5,7 @@
         <p>Profile page</p>
           <p><% if user_signed_in? %>
          <div> <%= current_user.name %> </div>
-         <div> <%= current_user.name %> </div>
+         <div> <%= current_user.email %> </div>
          <div> <%= current_user.description %> </div>
           <%= link_to "Edit Profile", edit_user_path %>
         <% end %>
