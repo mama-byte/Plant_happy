@@ -6,11 +6,27 @@ class PlantsController < ApplicationController
     # @plants = Plant.all
     @plants = policy_scope(Plant) #this line handles the index through authorization.
     # see plant policy -scope
+    @plants = Plant.geocoded #returns flats with coordinates
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
   end
+
 
   def show
     @plant = Plant.find(params[:id])
     authorize @plant
+    @plants = Plant.geocoded #returns plants with coordinates
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
+      }
+    end
   end
 
   def new
@@ -61,7 +77,7 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
-                                  :care_instructions, :user_id, :photo, :photo_cache,
+                                  :care_instructions, :user_id, :photo, :photo_cache, :address,
                                   :latitude, :longitude)
   end
 end
