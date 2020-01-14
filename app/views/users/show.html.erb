@@ -2,18 +2,16 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-sm">
-        <p>Profile page</p>
-          <p><% if user_signed_in? %>
-         <div> <%= current_user.name %> </div>
-         <div> <%= current_user.name %> </div>
-         <div> <%= current_user.description %> </div>
-          <%= link_to "Edit Profile", edit_user_path %>
-        <% end %>
-        </p>
-        <%= link_to 'Create a Plant', new_plant_path %>
-      </div>
+      <p>Profile page</p>
+      <% if user_signed_in? %>
+        <p> <%= current_user.name %> </p>
+        <p> <%= current_user.description %> </p>
+        <%= link_to "Edit Profile", edit_user_path %>
+      <% end %>
+      <%= link_to 'Create a Plant', new_plant_path %>
     </div>
   </div>
+</div>
 
 
 

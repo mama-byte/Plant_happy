@@ -10,8 +10,5 @@
           method: :delete, data: {
           confirm: 'Are you sure?' }, class: "button" %>
        <% end %>
-       <% if policy(booking).show? %>
-       <%= link_to 'View', booking, class: "button" %>
-        <% end %>
   <% end %>
 </div>
