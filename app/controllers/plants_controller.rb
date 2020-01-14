@@ -9,15 +9,18 @@ class PlantsController < ApplicationController
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
-        lng: plant.longitude
+        lng: plant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { plant: plant }),
+        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
 
+
   def show
     @plant = Plant.find(params[:id])
     authorize @plant
-    @plants = Plant.geocoded #returns flats with coordinates
+    @plants = Plant.geocoded #returns plants with coordinates
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
@@ -74,7 +77,7 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
-                                  :care_instructions, :user_id, :photo, :photo_cache,
+                                  :care_instructions, :user_id, :photo, :photo_cache, :address,
                                   :latitude, :longitude)
   end
 end
