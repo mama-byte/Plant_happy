@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking.plant_id = params[:plant_id]
     authorize @booking
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to user_path
+    redirect_to profile_path
   end
 
   private
