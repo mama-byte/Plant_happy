@@ -1,19 +1,41 @@
+<div class= "container">
 
-<div class = "container">
-  <div class = "row">
-    <div class = "col-sm">
-        <p>Profile page</p>
-          <p><% if user_signed_in? %>
-         <div> <%= current_user.name %> </div>
-         <div> <%= current_user.email %> </div>
-         <div> <%= current_user.description %> </div>
-          <%= link_to "Edit Profile", edit_user_path %>
-        <% end %>
-        </p>
-        <%= link_to 'Create a Plant', new_plant_path %>
-      </div>
+    <% if user_signed_in? %>
+      <h2>Welcome <%= current_user.name %> </h2>
+      <div class = 'text_box'>
+      <h4>Profile Information</h4>
+        <p>Name: <%= current_user.name %> </p>
+        <p>Email: <%= current_user.email %> </p>
+        <p>Description: <%= current_user.description %> </p>
+    <% end %>
+    <%= link_to 'Create a Plant', new_plant_path,class: "btn btn-ghost" %>
     </div>
-  </div>
+    <br>
+
+<div class = 'text_box'>
+<h4>Booking Information</h4>
+  <div id="grid">
+  <h2>You Have <%= @user.bookings.count%> Bookings</h2>
+   <% @user.bookings.each do |booking| %>
+    <div class= "cards">
+      <%= cl_image_tag("#{booking.plant.photo}",class: "card_image") %>
+       <h4><%= booking.plant.name %></h4>
+      <p> Booking dates: <%= booking.start_date.to_formatted_s(:long_ordinal) %> <%= booking.end_date.to_formatted_s(:long_ordinal) %></p>
+      <% if policy(booking).destroy? %>
+      <%= link_to 'Destroy', booking,
+          method: :delete, data: {
+          confirm: 'Are you sure?' }, class: "button" %>
+       <% end %>
+       <% if policy(booking).show? %>
+       <%= link_to 'View', booking, class: "button" %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+</div>
+</div>
+
+
 
 
 
