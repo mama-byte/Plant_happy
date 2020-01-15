@@ -10,7 +10,6 @@
 
 .banner {
     display: grid;
-    grid-gap: 4px;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 5vw);
     margin:0;
@@ -142,7 +141,6 @@ background:$white;
     grid-row-start: 1;
     grid-row-end:2;
     z-index: 3;
-    padding: 10px;
 }
   .header_text{
     font-size: 40px;
@@ -167,7 +165,6 @@ background:$white;
   }
    .banner {
     display: grid;
-    grid-gap: 4px;
      grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 5vw);
   }
@@ -211,7 +208,6 @@ background:$white;
   }
   .banner {
     display: grid;
-    grid-gap: 4px;
      grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 5vw);
   }
