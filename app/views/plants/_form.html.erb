@@ -8,5 +8,6 @@
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, class: "btn btn-ghost" %>
-
 <%end%>
+
+<%= javascript_include_tag('init_autocomplete') %>
