@@ -9,6 +9,6 @@ class Plant < ApplicationRecord
   validates :description, presence: true
   validates :care_instructions, presence: true
   validates :price, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  #validates :latitude, presence: true
+  #validates :longitude, presence: true
 end
