@@ -2,7 +2,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking # only: [:show, :edit, :update, :destroy]
 
-  # To create a booking I need this to be linked to a plant but to show the bookings I need to be linked to a current_user
 
   def index
     @bookings = current_user.bookings
@@ -28,10 +27,15 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.plant_id = params[:plant_id]
     authorize @booking
-    if @booking.save
-      redirect_to profile_path
+    if not_plant_owner?
+      if @booking.save
+        redirect_to profile_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:alert] = "You Cant book this Plant You Own it!! Time to take a Look at another plant!"
+      redirect_to root_path
     end
   end
 
@@ -44,10 +48,14 @@ class BookingsController < ApplicationController
 
   private
 
-  # def set_booking
-  #   @booking = Booking.find(params[:id])
-  #   authorize @booking
-  # end
+  def not_plant_owner?
+    @plant = Plant.find(params[:plant_id])
+    if @plant.user_id != @booking.user_id
+      true
+    else
+      false
+    end
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :plant_id)
