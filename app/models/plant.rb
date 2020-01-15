@@ -9,6 +9,5 @@ class Plant < ApplicationRecord
   validates :description, presence: true
   validates :care_instructions, presence: true
   validates :price, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  after_validation :geocode, if: :will_save_change_to_address?
 end
