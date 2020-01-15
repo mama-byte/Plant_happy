@@ -21,9 +21,9 @@
     grid-column-end: 14;
     grid-row-start: 1;
     grid-row-end: 12;
-     object-fit: cover;
-  width: 100%;
-  max-height: 100%;
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
     z-index: 3;
 }
 
@@ -142,15 +142,16 @@ background:$white;
     grid-row-start: 1;
     grid-row-end:2;
     z-index: 3;
+    padding: 10px;
 }
   .header_text{
-    font-size: 20px;
+    font-size: 40px;
     color: $white;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 7;
-    padding:20px;
+    margin:20px;
   }
   .about_box{
   display:grid;
@@ -180,13 +181,13 @@ background:$white;
  .header_text{
     font-size: 40px;
     padding:18px;
-      color: white;
+    color: white;
     text-align: center;
     padding-top: 40px;
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 4;
-    grid-row-end: 12;
+    grid-row-end: 10;
     z-index: 3;
   }
   .box{
@@ -218,64 +219,17 @@ background:$white;
     grid-column-start: 4;
     grid-column-end: 14;
     grid-row-start: 1;
-    grid-row-end: 10;
+    grid-row-end: 12;
      object-fit: cover;
-  width: 100%;
-  max-height: 100%;
+    width: 100%;
+    ßmax-height: 100%;
     z-index: 3;
 }
   .header_text{
-    font-size: 80px;
+    font-size: 60px;
     color: white;
     text-align: center;
-    padding-top: 100px;
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 4;
-    grid-row-end: 12;
-    z-index: 3;
-}
-
-.box{
-   grid-column-start: 1;
-     grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: span 4;
-    z-index: 2;
-}
-.about_box{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  #grid{
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  .banner {
-    display: grid;
-    grid-gap: 4px;
-     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 5vw);
-  }
-  .banner_img{
-    grid-column-start: 4;
-    grid-column-end: 14;
-    grid-row-start: 1;
-    grid-row-end: 12;
-     object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-    z-index: 3;
-}
-  .header_text{
-    font-size: 80px;
-    color: white;
-    text-align: center;
-    padding-top: 100px;
+    padding-top: 60px;
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 4;
