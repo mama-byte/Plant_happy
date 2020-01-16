@@ -26,7 +26,7 @@ class PlantsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
-      @number_days = @plant.avail_to - @plant.avail_from
+    @number_days = @plant.avail_to - @plant.avail_from
   end
 
   def new
