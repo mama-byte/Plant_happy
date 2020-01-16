@@ -262,6 +262,13 @@ padding-bottom:0px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.available{
+  position:relative;
+  float:right;
+  padding:20px;
+  background: rgba(231, 232, 230,0.6)
+}
+
 .card_image{
   background: white;
   height: 250px;
@@ -281,7 +288,6 @@ padding-bottom:0px;
   padding:18px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }
 
@@ -289,6 +295,7 @@ padding-bottom:0px;
   padding-right:50px;
   padding-top: 20px;
   padding-left: 40px;
+  padding-bottom: 20px;
 }
 
 .search h2{
@@ -300,12 +307,15 @@ padding-bottom:0px;
 
 .search-form-control {
   position: relative;
+  right: 10px;
+
 }
 
 .search-form-control .btn {
   position: absolute;
   top: 7px;
   bottom: 8px;
+  right: 5px;
 }
 
 .search-form-control .form-control {
@@ -319,6 +329,8 @@ padding-bottom:0px;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
+
 
 
 
