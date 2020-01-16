@@ -26,6 +26,7 @@ class PlantsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
+      @number_days = @plant.avail_to - @plant.avail_from
   end
 
   def new
@@ -76,6 +77,6 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :price,
-                                  :care_instructions, :user_id, :photo, :photo_cache, :address, :search)
+                                  :care_instructions, :user_id, :photo, :photo_cache, :address, :search, :avail_from, :avail_to)
   end
 end
