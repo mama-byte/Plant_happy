@@ -1,5 +1,4 @@
 
-
 const algoliaContainer = document.querySelector('#plant_address');
 
 if (algoliaContainer) {
