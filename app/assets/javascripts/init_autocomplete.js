@@ -1,5 +1,5 @@
 
-const algoliaContainer = document.querySelector('#plant_address');
+var algoliaContainer = document.querySelector('#plant_address');
 
 if (algoliaContainer) {
   var placesAutocomplete = places({
