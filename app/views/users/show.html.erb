@@ -17,15 +17,14 @@
           <% @user.plants.each do |plant| %>
             <div class= "cards">
               <%= cl_image_tag("#{plant.photo}",class: "card_image") %>
-              <h4><%= plant.name %></h4>
-
+              <h4><% if policy(plant).show? %>
+                <%= link_to plant.name, plant %>
+                  <% end %>
+                </h4>
               <% if policy(plant).destroy? %>
-                <%= link_to 'Destroy', plant,
-                    method: :delete, data: {
-                    confirm: 'Are you sure?' }, class: "button" %>
-              <% end %>
-              <% if policy(plant).show? %>
-                <%= link_to 'View', plant, class: "button" %>
+                  <%= link_to image_tag('bin.png',width:30), plant,
+                      method: :delete, data: {
+                      confirm: 'Are you sure?' }%>
               <% end %>
             </div>
           <% end %>
@@ -38,15 +37,12 @@
           <% @user.bookings.each do |booking| %>
             <div class= "cards">
               <%= cl_image_tag("#{booking.plant.photo}",class: "card_image") %>
-              <h4><%= booking.plant.name %></h4>
+              <h4><%= link_to booking.plant.name, plant_path(booking.plant_id) %></h4>
               <p> Booking dates: <%= booking.start_date.to_formatted_s(:long_ordinal) %> <%= booking.end_date.to_formatted_s(:long_ordinal) %></p>
               <% if policy(booking).destroy? %>
-                <%= link_to 'Destroy', booking,
-                    method: :delete, data: {
-                    confirm: 'Are you sure?' }, class: "button" %>
-              <% end %>
-              <% if policy(booking).show? %>
-                <%= link_to 'View', booking, class: "button" %>
+                     <%= link_to image_tag('bin.png',width:30), booking,
+                      method: :delete, data: {
+                      confirm: 'Are you sure?' }%>
               <% end %>
             </div>
           <% end %>

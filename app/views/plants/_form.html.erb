@@ -1,9 +1,9 @@
 <%= simple_form_for @plant  do |f| %>
 
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :care_instructions %>
-    <%= f.input :price %>
+    <%= f.input :name, :label => "Plant Type"%>
+    <%= f.input :description, :label => "Describe your plant" %>
+    <%= f.input :care_instructions, :label => "What care does your plant need?" %>
+    <%= f.input :price, :label => "Set daily rate" %>
     <%= f.input :address %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>

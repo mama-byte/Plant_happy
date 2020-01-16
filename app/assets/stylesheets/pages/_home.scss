@@ -289,6 +289,7 @@ padding-bottom:0px;
   padding-right:50px;
   padding-top: 20px;
   padding-left: 40px;
+  padding-bottom: 20px;
 }
 
 .search h2{
@@ -300,12 +301,15 @@ padding-bottom:0px;
 
 .search-form-control {
   position: relative;
+  right: 10px;
+
 }
 
 .search-form-control .btn {
   position: absolute;
   top: 7px;
   bottom: 8px;
+  right: 5px;
 }
 
 .search-form-control .form-control {
