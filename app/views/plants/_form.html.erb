@@ -1,13 +1,21 @@
-<%= simple_form_for @plant  do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm m-5">
+        <%= simple_form_for @plant  do |f| %>
 
-    <%= f.input :name, :label => "Plant Type"%>
-    <%= f.input :description, :label => "Describe your plant" %>
-    <%= f.input :care_instructions, :label => "What care does your plant need?" %>
-    <%= f.input :price, :label => "Set daily rate" %>
-    <%= f.input :address %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.button :submit, class: "btn btn-ghost" %>
-<%end%>
+            <%= f.input :name, :label => "Plant Type"%>
+            <%= f.input :description, :label => "Describe your plant" %>
+            <%= f.input :care_instructions, :label => "What care does your plant need?" %>
+            <%= f.input :price, :label => "Set daily rate" %>
+            <%= f.input :avail_from, :label => "When are you going away?" %>
+            <%= f.input :avail_to, :label => "When are you getting home?" %>
+            <%= f.input :address %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit, class: "btn btn-ghost" %>
+        <%end%>
+      </div>
+  </div>
+</div>
 
 <%= javascript_include_tag('init_autocomplete') %>
