@@ -27,7 +27,12 @@
           <p><strong>A total of <%= @number_days.to_i%> days</strong></p>
         </div>
 
-        <%= link_to "Make a Booking",  new_plant_booking_path(@plant), class: "btn btn-ghost" %>
+        <%= link_to image_tag('edit.png',width:25), edit_plant_path(@plant) %>
+        <% if policy(@plant).destroy? %>
+            <%= link_to image_tag('bin.png',width:30), plant_path(@plant),
+              method: :delete, data: {
+              confirm: 'Are you sure?' }%>
+        <% end %>
     </div>
     <%= render 'shared/map'%>
 </div>
