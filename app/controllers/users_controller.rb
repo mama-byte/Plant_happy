@@ -14,7 +14,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @user.update(user_params)
-    @user.save
+    if @user.save
+      redirect_to profile_path
+    else
+      render 'edit'
+    end
   end
 
   private
