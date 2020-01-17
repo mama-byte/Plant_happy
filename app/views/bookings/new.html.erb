@@ -2,14 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <%= simple_form_for @booking, url: plant_bookings_path(@booking.plant_id), method: :post  do |f| %>
+      <div class="text-box">
+        <img class ="banner_img" src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'/>
+      </div>
+  </div>
 
+      <div class = "text_box">
+      <%= simple_form_for @booking, url: plant_bookings_path(@booking.plant_id), method: :post  do |f| %>
+        <h2>Select Duration of Listing</h2>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
         <%= f.button :submit, class: "btn btn-ghost" %>
-
-    <%end%>
-
+      <%end%>
+      </div>
     </div>
   </div>
 </div>

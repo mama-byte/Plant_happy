@@ -5,7 +5,8 @@
           <h4>Profile Information</h4>
           <p>Name: <%= current_user.name %> </p>
           <p>Email: <%= current_user.email %> </p>
-          <p>Description: <%= current_user.description %> </p>
+          <p>About Yourself: <%= current_user.description %> </p>
+        <!-- <img class ="card_img" src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'/> -->
       <% end %>
       <%= link_to image_tag('edit.png',width:25), edit_user_path(@user) %>
         </div>

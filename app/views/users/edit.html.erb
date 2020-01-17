@@ -1,13 +1,22 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-sm">
+
+      <div class="text-box">
+        <img class ="banner_img" src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'/>
+      </div>
+    </div>
+      <div class = "text_box">
         <h4>Edit your profile</h4>
         <%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
           <%= f.input :name %>
           <%= f.input :email %>
           <%= f.input :description %>
-          <%= f.button :submit, class: "btn-ghost" %>
+         <!--  <%= f.input :avatar, as: :file %> -->
+          <%= f.button :submit, 'Save Changes', class: "btn-ghost" %>
         <% end %>
+      </div>
+
     </div>
   </div>
 </div>

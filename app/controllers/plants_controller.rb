@@ -65,7 +65,7 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     authorize @plant
     @plant.destroy
-    redirect_to plants_url, notice: 'Plant was destroyed'
+    redirect_to plants_url, notice: 'Plant was removed'
   end
 
   private
