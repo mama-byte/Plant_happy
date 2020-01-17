@@ -2,13 +2,15 @@
 <div>
   <div class="banner">
       <img class ="banner_img" src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'/>
-      <h2 class="header_text">Are You a Plant Happy Person?</h2>
-      <div class="box"></div>
+      <h2 class="header_text">Would you like to become a plant sitter?</h2>
+      <div class="box">
+        <h2>Book plant sitters. Keep your plants happy during your vacation.</h2>
+      </div>
   </div>
 
   <div class = 'about_box'>
     <div class ="search">
-      <h2>Search for Plants in your City</h2>
+      <h2>Search for Plants to Sit in Berlin</h2>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
         <div class="search-form-control form-group">
           <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Berlin"/>
@@ -47,7 +49,7 @@
             </div>
           </div>
 
-            <div class = "m-3" id = "links">
+<!--             <div class = "m-3" id = "links">
               <span class= "m-2">
                 <% if policy(plant).edit? %>
                     <%= link_to image_tag('edit.png',width:25), edit_plant_path(plant) %>
@@ -61,7 +63,7 @@
                       confirm: 'Are you sure?' }%>
                 <%end%>
               </span>
-            </div>
+            </div> -->
         </div>
       </div>
     <% end %>
