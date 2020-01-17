@@ -23,8 +23,9 @@
         </div>
 
         <div class= "text_box">
-          <p> <%= image_tag("scheduling.png", class: "icon") %><p>This plant is available from: <strong><%= @plant.avail_from.to_formatted_s(:long_ordinal)  %> until: <%= @plant.avail_to.to_formatted_s(:long_ordinal)  %></strong></p>
+          <p> <%= image_tag("scheduling.png", class: "icon") %><p>This plant is available from: <strong><%= @plant.avail_from.strftime(' %a %w %b %Y')  %> until: <%= @plant.avail_to.strftime(' %a %w %b %Y') %></strong></p>
           <p><strong>A total of <%= @number_days.to_i%> days</strong></p>
+          <p><strong>Price per day: € <%= @plant.price%></strong></p>
         </div>
 
         <%= link_to image_tag('edit.png',width:25), edit_plant_path(@plant) %>
