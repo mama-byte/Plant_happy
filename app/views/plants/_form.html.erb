@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm m-5">
+     <div class="text_box">
         <%= simple_form_for @plant  do |f| %>
-
             <%= f.input :name, :label => "Plant Type"%>
             <%= f.input :description, :label => "Describe your plant" %>
             <%= f.input :care_instructions, :label => "What care does your plant need?" %>
@@ -14,6 +14,7 @@
             <%= f.input :photo_cache, as: :hidden %>
             <%= f.button :submit, class: "btn btn-ghost" %>
         <%end%>
+        </div>
       </div>
   </div>
 </div>
