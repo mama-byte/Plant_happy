@@ -11,6 +11,11 @@
    <div class = 'title'>
       <h2><%= @plant.name %></h2>
     </div>
+    <div class = 'booking'>
+      <% unless @plant.user == current_user %>
+        <%= link_to "Book this plant",  new_plant_booking_path(@plant), class: "btn btn-ghost", :style=>'float: right;' %>
+      <%end %>
+    </div>
     <div class= "text_container">
         <div class= "text_box">
           <p> <%= image_tag("cactus.png", class: "icon") %><h4>Plant Description</h4></p>
@@ -23,18 +28,20 @@
         </div>
 
         <div class= "text_box">
-          <p> <%= image_tag("scheduling.png", class: "icon") %><p>This plant is available from: <strong><%= @plant.avail_from.strftime(' %a %w %b %Y')  %> until: <%= @plant.avail_to.strftime(' %a %w %b %Y') %></strong></p>
+          <p> <%= image_tag("scheduling.png", class: "icon") %><p>This plant is available from: <strong><%= @plant.avail_from.strftime(' %a %e %b')  %> until: <%= @plant.avail_to.strftime(' %a %e %b') %></strong></p>
           <p><strong>A total of <%= @number_days.to_i%> days</strong></p>
           <p><strong>Price per day: € <%= @plant.price%></strong></p>
-        </div>
-
-        <%= link_to image_tag('edit.png',width:25), edit_plant_path(@plant) %>
-        <% if policy(@plant).destroy? %>
+             <% if policy(@plant).edit? %>
+              <%= link_to image_tag('edit.png',width:25), edit_plant_path(@plant) %>
+              <%end%>
+              <% if policy(@plant).destroy? %>
             <%= link_to image_tag('bin.png',width:30), plant_path(@plant),
               method: :delete, data: {
               confirm: 'Are you sure?' }%>
         <% end %>
-        <%= link_to "Book this plant",  new_plant_booking_path(@plant), class: "btn btn-ghost" %>
+        </div>
    </div>
+    <div>
     <%= render 'shared/map'%>
+   </div>
 </div>

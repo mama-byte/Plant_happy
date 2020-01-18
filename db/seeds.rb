@@ -40,7 +40,7 @@ cacty = Plant.create!(
   latitude: 52.5493,
   longitude:13.4137,
   avail_from: Date.new(2020, 2, 2),
-  avail_to: Date.new(2020, 2, 20)
+  avail_to: Date.new(2020, 2, 5)
   )
 booky = Booking.create(start_date: Date.new(2020, 1, 1), end_date: Date.new(2020, 1, 2), user_id: serg.id, plant_id: planty.id)
 wooky = Booking.create(start_date: Date.new(2020, 2, 2), end_date: Date.new(2020, 2, 20), user_id: serg.id, plant_id: cacty.id)

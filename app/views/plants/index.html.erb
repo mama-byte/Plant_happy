@@ -40,12 +40,13 @@
             <%= cl_image_tag("#{plant.photo}",class: "card_image") %>
           </div>
           <div class="card-trip-infos">
-            <h4><%= link_to plant.name, plant %></h4>
+            <h4><%= link_to plant.name, plant, :style=>'text-decoration: none;'%></h4>
             <div class = 'available'>
               <p>
                 <%= image_tag('scheduling.png',width:30) %></p>
                 <p>Available from
-                  <%= plant.avail_from.strftime(' %a %w %b %Y') %> for <%= (plant.avail_to - plant.avail_from).to_i%> days</p>
+                  <%= plant.avail_from.strftime('%a %e %b') %> for <%= (plant.avail_to - plant.avail_from).to_i%> days</p>
+                <p>Daily Rate: € <%= plant.price %></p>
             </div>
           </div>
         </div>
