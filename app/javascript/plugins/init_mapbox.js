@@ -6,7 +6,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10' //mapbox://styles/reyals88/ck5dtw2l50q3b1is66zurqkec for satelite view use this
+    style: 'mapbox://styles/reyals88/ck5fmjbmg2e4d1ir24mr5inm6' //mapbox://styles/reyals88/ck5dtw2l50q3b1is66zurqkec for satelite view use this
   });
 };
 
