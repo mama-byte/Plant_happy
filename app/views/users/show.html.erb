@@ -8,7 +8,9 @@
           <p>About Yourself: <%= current_user.description %> </p>
         <!-- <img class ="card_img" src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'/> -->
       <% end %>
+      <% if policy(plant).edit? %>
       <%= link_to image_tag('edit.png',width:25), edit_user_path(@user) %>
+      <% end %>
         </div>
     <br>
 
