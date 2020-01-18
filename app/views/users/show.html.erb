@@ -45,7 +45,7 @@
             <div class= "cards">
               <%= cl_image_tag("#{booking.plant.photo}",class: "card_image") %>
               <h4><%= link_to booking.plant.name, plant_path(booking.plant_id) %></h4>
-              <p> Booking dates: <%= booking.start_date.strftime(' %a %w %b %Y') %> to <%= booking.end_date.strftime(' %a %w %b %Y') %></p>
+              <p> Booking dates: <%= booking.start_date.strftime('%A, %b %d') %> to <%= booking.end_date.strftime('%A, %b %d') %></p>
               <p> Total Days: <%= (booking.end_date - booking.start_date).to_i %></p>
               <p>Total Income: € <%= (booking.end_date - booking.start_date).to_i * booking.plant.price %></p>
               <% if policy(booking).destroy? %>
