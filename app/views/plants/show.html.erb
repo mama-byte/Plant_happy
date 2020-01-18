@@ -13,12 +13,12 @@
     </div>
     <div class= "text_container">
         <div class= "text_box">
-          <p> <%= image_tag("cactus", class: "icon") %><h4>Plant Description</h4></p>
+          <p> <%= image_tag("cactus.png", class: "icon") %><h4>Plant Description</h4></p>
           <%= @plant.description %>
         </div>
 
         <div class= "text_box">
-          <p><%= image_tag("growth", class: "icon") %><h4>Plant Care</h4></p>
+          <p><%= image_tag("growth.png", class: "icon") %><h4>Plant Care</h4></p>
           <%= @plant.care_instructions %>
         </div>
 
@@ -28,7 +28,12 @@
           <p><strong>Price per day: € <%= @plant.price%></strong></p>
         </div>
 
-        <%= link_to "Make a Booking",  new_plant_booking_path(@plant), class: "btn btn-ghost" %>
+        <%= link_to image_tag('edit.png',width:25), edit_plant_path(@plant) %>
+        <% if policy(@plant).destroy? %>
+            <%= link_to image_tag('bin.png',width:30), plant_path(@plant),
+              method: :delete, data: {
+              confirm: 'Are you sure?' }%>
+        <% end %>
     </div>
     <%= render 'shared/map'%>
 </div>

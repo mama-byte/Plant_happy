@@ -2,12 +2,12 @@
   <div class = "row">
     <div class = "col-sm">
         <h4>Edit your profile</h4>
-        <%= simple_form_for @user do |f| %>
+        <%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
           <%= f.input :name %>
           <%= f.input :email %>
           <%= f.input :description %>
-          <%= f.input :password %>
-          <%= f.button :submit %>
+         <!--  <%= f.input :password %> -->
+          <%= f.button :submit, class: "btn-ghost" %>
         <% end %>
     </div>
   </div>
