@@ -253,7 +253,9 @@ background:$white;
 
 #links{
 padding-bottom:0px;
+// text-decoration:none;
 }
+
 
 .cards{
   background-color:white;
@@ -285,6 +287,11 @@ padding-bottom:0px;
 .card-trip-infos a {
   margin: 0;
   padding:18;
+}
+.card-trip-infos a:hover {
+  margin: 0;
+  padding:18;
+  color: #7b8e85;
 }
 
 .card-trip-infos {
